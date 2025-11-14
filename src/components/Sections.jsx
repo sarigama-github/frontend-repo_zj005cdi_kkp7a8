@@ -1,4 +1,5 @@
 import { Code2, Server, Rocket, Mail, ExternalLink } from 'lucide-react'
+import Spline from '@splinetool/react-spline'
 
 export function About() {
   return (
@@ -86,6 +87,18 @@ export function Projects() {
     <section id="projects" className="py-24">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">Projects</h2>
+
+        {/* 3D banner embedded above the project grid */}
+        <div className="mt-6 relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+          <div className="relative aspect-[16/7]">
+            <div className="absolute inset-0 motion-safe:block motion-reduce:hidden" aria-hidden>
+              <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" />
+            </div>
+            {/* Subtle gradient overlay for readability */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 to-transparent dark:from-slate-950/70 dark:via-slate-950/20" />
+          </div>
+        </div>
+
         <div className="mt-8 grid xs:grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
           {projects.map(p => (
             <a key={p.title} href={p.url} className="group p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
